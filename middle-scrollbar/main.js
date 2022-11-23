@@ -38,6 +38,8 @@ function simpleDropDown() {
   });
 
   function middleDropdownBlock(block, tmpTop) {
+
+    tmpTop = Math.round(tmpTop);
   
     const blockHeight = block.height();
     const listHeight = block.find(".middle-dropdown-list").height();
