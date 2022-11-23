@@ -4,26 +4,6 @@ $(document).ready(function () {
 
 // simpleDropDown
 function simpleDropDown() {
-  //
-  function middleDropdownBlock(block, tmpTop) {
-  
-    const blockHeight = block.height();
-    const listHeight = block.find(".middle-dropdown-list").height();
-  
-    const lineHeight = block.find('.middle-dropdown-line').height();
-    const index = ((listHeight - blockHeight) / (blockHeight - lineHeight)).toFixed(2);
-  
-    const scrollHeight = -1 * listHeight + blockHeight;
-  
-    if (tmpTop > 0 || tmpTop < scrollHeight) {
-      return;
-    }
-  
-    block.find(".middle-dropdown-list").css("top", tmpTop + "px");
-  
-    block.find(".middle-dropdown-line").css("top", Math.round((tmpTop * -1) / index) + "px");
-  }
-  //
   
   $(".middle-dropdown-block").each(function () {
     $(this).on("wheel", function (event) {
@@ -56,4 +36,24 @@ function simpleDropDown() {
 
     });
   });
+
+  function middleDropdownBlock(block, tmpTop) {
+  
+    const blockHeight = block.height();
+    const listHeight = block.find(".middle-dropdown-list").height();
+  
+    const lineHeight = block.find('.middle-dropdown-line').height();
+    const index = ((listHeight - blockHeight) / (blockHeight - lineHeight)).toFixed(2);
+  
+    const scrollHeight = -1 * listHeight + blockHeight;
+  
+    if (tmpTop > 0 || tmpTop < scrollHeight) {
+      return;
+    }
+  
+    block.find(".middle-dropdown-list").css("top", tmpTop + "px");
+  
+    block.find(".middle-dropdown-line").css("top", Math.round((tmpTop * -1) / index) + "px");
+  }
+
 }
